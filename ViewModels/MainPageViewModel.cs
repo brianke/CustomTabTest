@@ -29,7 +29,7 @@ namespace CustomTabTest
             CustomTab _customTab = new CustomTab();
             _customTab.Header = "Test Tab";
             _customTab.TabIsVisible = true;
-            _customTab.TaskCollection = new List<UtilitiesTask>();
+            _customTab.TaskCollection = new TaskCollection();
 
             UtilitiesTask _task = new UtilitiesTask();
             _task.TaskTitle = "Task 1";
@@ -65,17 +65,13 @@ namespace CustomTabTest
         // Add properties using the mvvmprop code snippet
         public CustomTab CustomTabInfo { get; set; }
 
-        private string bannerText = "Hello Simple MVVM Toolkit";
         public string BannerText
         {
             get
             {
-                return "Banner";
-            }
-            set
-            {
-                bannerText = value;
-                NotifyPropertyChanged(m => m.BannerText);
+                // Tools, Options, Debugging: Uncheck 'Step over properties ...'
+                // Set breakpoint here
+                return string.Format("Is Dirty: {0}", IsDirty);
             }
         }
 
