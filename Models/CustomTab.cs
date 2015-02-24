@@ -24,7 +24,7 @@ namespace CustomTabTest.Models
         // Overriding the GetHashCode prevents the Clone operation from marking an 
         // object Dirty when it is first cloned
         // Calculates object hash code based on property hash codes
-        public override int GetHashCode()
+        /* public override int GetHashCode()
         {
             return GetHashCode(this, "TaskCollection");
         }
@@ -44,8 +44,7 @@ namespace CustomTabTest.Models
                 }
             }
             return hashCode;
-        }
-
+        } */
 
         public CustomTab()
         {
@@ -59,7 +58,7 @@ namespace CustomTabTest.Models
 
         public String Header { get; set; }
         public Boolean TabIsVisible { get; set; }
-        public List<UtilitiesTask> TaskCollection { get; set; }
+        public TaskCollection TaskCollection { get; set; }
 
         #endregion Properties
 
@@ -78,7 +77,7 @@ namespace CustomTabTest.Models
         // Calculates object hash code based on property hash codes
         public override int GetHashCode()
         {
-            return GetHashCode(this, "TaskTitle", "ButtonLabel", "ButtonType");
+            return GetHashCode(this);
         }
 
         private int GetHashCode(object item, params string[] excludeProps)
